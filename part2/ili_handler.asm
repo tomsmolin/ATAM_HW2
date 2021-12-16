@@ -22,7 +22,8 @@ my_ili_handler:
 
   xorq %rdi, %rdi
   xorq %rax, %rax
-
+  xorq %rcx,%rcx
+  movq 120(%rsp),%rcx
   movq (%rcx), %rcx
   cmpb $0x0f, %cl
   jne one_byte

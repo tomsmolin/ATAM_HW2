@@ -23,11 +23,8 @@ void my_set_gate_offset(gate_desc *gate, unsigned long addr) {
 }
 
 unsigned long my_get_gate_offset(gate_desc *gate) {
-    unsigned long address = 0;
-    address = gate->offset_high;
+    unsigned long address = gate->offset_high;
     address = address << 16;
     address += gate->offset_middle;
-    address = address << 16;
-    address += gate->offset_low;
-    return address;
+    return address << 16 + gate->offset_low
 }
